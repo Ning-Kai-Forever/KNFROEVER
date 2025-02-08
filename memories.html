@@ -1,63 +1,127 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KNFOREVER 回忆</title>
+    <title>我们的回忆</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f4e3;
-            color: #333;
+            font-family: "Arial", sans-serif;
+            background-color: #EAF6FF;
             text-align: center;
-            padding: 50px;
+            color: #333;
         }
-
-        h1 {
-            color: #a67c52;
-        }
-
-        .memory-container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .memory {
-            background: #f5e3d0;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
-
-        .back-link {
-            display: inline-block;
+        h2 {
+            color: #4A90E2;
             margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #a67c52;
+        }
+        
+        /* 日历 */
+        .calendar-container {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        /* 留言板 */
+        .message-board {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #4A90E2;
             color: white;
-            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #2E6EB5;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background: #f0f8ff;
+            margin: 5px 0;
+            padding: 10px;
             border-radius: 5px;
         }
 
-        .back-link:hover {
-            background-color: #8b5e34;
+        /* 时间轴 */
+        .timeline {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: left;
+            border-left: 3px solid #4A90E2;
+            padding-left: 20px;
+        }
+        .timeline ul {
+            list-style: none;
+            padding: 0;
+        }
+        .timeline li {
+            position: relative;
+            padding: 10px 0;
+            font-size: 16px;
+        }
+        .timeline li span {
+            color: #4A90E2;
+            font-weight: bold;
+            display: block;
         }
     </style>
 </head>
 <body>
-    <h1>我们的回忆</h1>
-    <div class="memory-container">
-        <div class="memory">
-            <p>🌸 2025-02-08: 第一次创建这个空间，见证我们永远的承诺。</p >
-        </div>
-        <div class="memory">
-            <p>💌 2025-02-14: 我们的第一个情人节，留下最甜蜜的回忆。</p >
-        </div>
+
+    <h2>我们的日子</h2>
+    <div class="calendar-container">
+        <iframe src="https://calendar.google.com/calendar/embed?src=你的Google日历ID&ctz=Asia/Shanghai" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
     </div>
-    <a href="index.html" class="back-link">返回首页</a>
+
+    <h2>留言板</h2>
+    <div class="message-board">
+        <textarea id="messageInput" placeholder="在这里写下你的话..."></textarea>
+        <button onclick="addMessage()">发布</button>
+        <ul id="messageList"></ul>
+    </div>
+
+    <h2>我们的回忆</h2>
+    <div class="timeline">
+        <ul>
+            <li><span>2024-12-24</span> 认识的第一天</li>
+            <li><span>2024-12-29</span> 一起听音乐</li>
+            <li><span>2025-01-05</span> 确定关系</li>
+        </ul>
+    </div>
+
+    <script>
+        function addMessage() {
+            let messageInput = document.getElementById("messageInput");
+            let messageList = document.getElementById("messageList");
+
+            if (messageInput.value.trim() !== "") {
+                let li = document.createElement("li");
+                li.textContent = messageInput.value;
+                messageList.appendChild(li);
+                messageInput.value = "";
+            }
+        }
+    </script>
+
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,122 +7,52 @@
     <style>
         body {
             font-family: "Arial", sans-serif;
-            background-color: #EAF6FF;
+            background: linear-gradient(to bottom right, #dfe9f3, #a6c1ee);
             text-align: center;
+            padding: 50px;
             color: #333;
         }
-        h2 {
-            color: #4A90E2;
-            margin-top: 20px;
+        h1 {
+            font-size: 2.5em;
+            font-weight: bold;
         }
-        
-        /* 日历 */
-        .calendar-container {
-            margin: 20px auto;
-            text-align: center;
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
         }
-
-        /* 留言板 */
-        .message-board {
-            width: 80%;
-            max-width: 600px;
-            margin: 20px auto;
-            text-align: center;
-        }
-        textarea {
-            width: 100%;
-            height: 80px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            resize: none;
-        }
-        button {
-            margin-top: 10px;
-            padding: 10px 15px;
-            background-color: #4A90E2;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .photo {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            border-radius: 10px;
+            object-fit: cover;
             transition: 0.3s;
         }
-        button:hover {
-            background-color: #2E6EB5;
+        .photo:hover {
+            transform: scale(1.1);
         }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            background: #f0f8ff;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        /* 时间轴 */
-        .timeline {
-            width: 80%;
-            max-width: 600px;
-            margin: 20px auto;
-            text-align: left;
-            border-left: 3px solid #4A90E2;
-            padding-left: 20px;
-        }
-        .timeline ul {
-            list-style: none;
-            padding: 0;
-        }
-        .timeline li {
-            position: relative;
-            padding: 10px 0;
-            font-size: 16px;
-        }
-        .timeline li span {
-            color: #4A90E2;
-            font-weight: bold;
-            display: block;
+        .calendar {
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
+    <h1>我们的回忆</h1>
+    <p>珍贵的时刻，永远收藏</p>
 
-    <h2>我们的日子</h2>
-    <div class="calendar-container">
-        <iframe src="https://calendar.google.com/calendar/embed?src=qingzhou824@gmail.com
-&ctz=Asia/Shanghai" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    <!-- 相册 -->
+    <div class="gallery">
+        <img src="https://via.placeholder.com/200" class="photo" alt="回忆1">
+        <img src="https://via.placeholder.com/200" class="photo" alt="回忆2">
+        <img src="https://via.placeholder.com/200" class="photo" alt="回忆3">
     </div>
 
-    <h2>留言板</h2>
-    <div class="message-board">
-        <textarea id="messageInput" placeholder="在这里写下你的话..."></textarea>
-        <button onclick="addMessage()">发布</button>
-        <ul id="messageList"></ul>
+    <!-- 日历 -->
+    <div class="calendar">
+        <iframe src="https://calendar.google.com/calendar/embed?src=qingzhou824@gmail.com" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
     </div>
-
-    <h2>我们的回忆</h2>
-    <div class="timeline">
-        <ul>
-            <li><span>2024-12-24</span> 认识的第一天</li>
-            <li><span>2024-12-29</span> 一起听音乐</li>
-            <li><span>2025-01-05</span> 确定关系</li>
-        </ul>
-    </div>
-
-    <script>
-        function addMessage() {
-            let messageInput = document.getElementById("messageInput");
-            let messageList = document.getElementById("messageList");
-
-            if (messageInput.value.trim() !== "") {
-                let li = document.createElement("li");
-                li.textContent = messageInput.value;
-                messageList.appendChild(li);
-                messageInput.value = "";
-            }
-        }
-    </script>
 
 </body>
 </html>

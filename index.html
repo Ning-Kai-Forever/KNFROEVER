@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,39 +7,64 @@
     <style>
         body {
             font-family: "Arial", sans-serif;
-            background-color: #EAF6FF;
+            background: linear-gradient(to bottom right, #dfe9f3, #a6c1ee); /* 淡蓝渐变 */
             text-align: center;
+            padding: 50px;
             color: #333;
         }
         h1 {
-            margin-top: 50px;
-            font-size: 36px;
-            color: #4A90E2;
+            font-size: 2.5em;
+            font-weight: bold;
         }
-        p {
-            font-size: 18px;
-            margin: 20px;
-        }
-        .button {
+        .btn {
             display: inline-block;
-            padding: 12px 20px;
-            font-size: 18px;
-            color: white;
-            background-color: #4A90E2;
-            border-radius: 5px;
+            margin: 20px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #4a90e2;
+            border: none;
+            border-radius: 8px;
             text-decoration: none;
+            cursor: pointer;
             transition: 0.3s;
         }
-        .button:hover {
-            background-color: #2E6EB5;
+        .btn:hover {
+            background-color: #357ab7;
+        }
+        .countdown {
+            margin-top: 30px;
+            font-size: 1.5em;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
+    <h1>Welcome to KNFOREVER</h1>
+    <p>永远的Kai & Ning</p>
 
-    <h1>欢迎来到 KNFOREVER</h1>
-    <p>这是我们的专属网站，记录所有特别的瞬间。</p>
-    <a href="memories.html" class="button">探索我们的回忆</a>
+    <!-- 回忆相册 -->
+    <a href="memories.html" class="btn">探索我们的回忆</a>
 
+    <!-- 纪念日倒计时 -->
+    <div class="countdown">
+        距离我们在一起的纪念日还有 <span id="countdown-timer"></span>
+    </div>
+
+    <script>
+        function countdown() {
+            const targetDate = new Date("2025-05-20"); // 设定纪念日
+            const now = new Date();
+            const diff = targetDate - now;
+
+            if (diff > 0) {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById("countdown-timer").innerText = days + " 天";
+            } else {
+                document.getElementById("countdown-timer").innerText = "今天就是纪念日！";
+            }
+        }
+        countdown();
+    </script>
 </body>
 </html>
